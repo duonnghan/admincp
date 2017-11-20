@@ -62,7 +62,7 @@ function doLogin()
 					WHERE username = '{$row['username']}'";
 			dbQuery($sql);
                   
-            redirect("../../widgets/main.php");
+            redirect("main.php");
 		} else {
 			$errorMessage = 'Sai tên đăng nhập hoặc mật khẩu';
 			echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu, vui lòng nhập lại.')</script>";
@@ -83,7 +83,7 @@ function doLogout()
 		session_unregister('admin_id');
 	}
 
-	redorect('../modules/common/login.php');
+	redirect('../modules/common/login.php');
 	exit();
 }
 
@@ -137,10 +137,10 @@ function buildCategoryOptions($catId = 0)
 
 
 
-/*
+/*************************************************
 	Tạo thumbnail của $srcFile và lưu vào $destFile.
 	Thumbnail có kích thước $width pixel.
-*/
+**************************************************/
 function createThumbnail($srcFile, $destFile, $width, $quality = 75)
 {
 	$thumbnail = '';
@@ -210,13 +210,13 @@ function copyImage($srcFile, $destFile, $w, $h, $quality = 75)
 
 }
 
-/*
+/*********************************************************
 	Tạo link phân trang
-*/
+*************************************************************/
 function getPagingNav($sql, $pageNum, $rowsPerPage, $queryString = '')
 {
-	$result  = mysql_query($sql) or die('Error, query failed. ' . mysql_error());
-	$row     = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result  = dbQuery($sql);
+	$row     = dbFetchArray($result, MYSQL_ASSOC);
 	$numrows = $row['numrows'];
 
 	// số trang ta có khi phân trang
@@ -257,5 +257,61 @@ function getPagingNav($sql, $pageNum, $rowsPerPage, $queryString = '')
 
 	// trả về trang thường
 	return $first . $prev . " Showing page <strong>$pageNum</strong> of <strong>$maxPage</strong> pages " . $next . $last;
+}
+
+//Tao duong dan
+function createPath($module, $action){
+        /***************************************
+    Trường hợp người dùng không truyền module và action
+    thì ta lấy module mặc định là common
+    và action mặc định là login
+    ***************************************/
+    if(empty($module) || empty($action)){
+        $module='common';
+        $action='login';
+    }
+
+    /***************************************
+    Tạo đường dẫn cho module và action
+    ***************************************/
+    $path = 'modules/'.$module.'/'.$action.'.php';
+
+    if(file_exists($path)){
+        include_once("./libs/functions.php");
+        checkUser();
+        redirect('admincp/'.$path);
+    }else{
+        include_once("./modules/common/404.php");
+    } 
+}
+
+//Ham lay danh sach khach hang
+function getUserInfo(){
+    return dbSelectALl('userinfo');   
+}
+
+//Ham lay danh sach don hang
+function getOrderList(){
+    return dbSelectAll('orderbook');
+}
+
+//Ham lay so luong nguoi dung
+function getNumUsers(){
+   return dbCount('userinfo');
+}
+
+//Ham lay so luong hoa don
+function getNumOrders(){
+    return dbCount('orderbook');
+}
+
+//Ham lay tong gia tri cac don hang
+function getTotalPrices(){
+    $sql = "SELECT SUM(count) from orderdetail";
+    return dbQuery($sql);
+}
+
+function getAdminInfo(){
+    return dbSelectAll('admin');
 }
 ?>

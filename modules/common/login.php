@@ -29,7 +29,7 @@ include_once("../../libs/functions.php");
 
     <?php
 
-    if($_POST["btnLogin"]=="login")
+    if(isset($_POST["btnLogin"]) && $_POST["btnLogin"]=="login")
     {	
         doLogin();
     }
