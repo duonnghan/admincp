@@ -260,34 +260,24 @@ function getPagingNav($sql, $pageNum, $rowsPerPage, $queryString = '')
 }
 
 //Tao duong dan
-function createPath($module, $action){
-        /***************************************
-    Trường hợp người dùng không truyền module và action
-    thì ta lấy module mặc định là common
-    và action mặc định là login
-    ***************************************/
-    if(empty($module) || empty($action)){
-        $module='common';
-        $action='login';
-    }
-
-    /***************************************
-    Tạo đường dẫn cho module và action
-    ***************************************/
-    $path = 'modules/'.$module.'/'.$action.'.php';
-
-    if(file_exists($path)){
-        include_once("./libs/functions.php");
-        checkUser();
-        redirect('admincp/'.$path);
-    }else{
-        include_once("./modules/common/404.php");
-    } 
+function createPath($action){
+    $path = "Localhost:8080/admincp/modules/common/main.php?a=".$action;
+    return $path;
 }
 
 //Ham lay danh sach khach hang
 function getUserInfo(){
     return dbSelectALl('userinfo');   
+}
+
+//Ham lay danh sach admin
+function getAdminInfo(){
+    return dbSelectAll('admin');
+}
+
+//Ham lay danh sach tac gia
+function getAuthorInfo(){
+    return dbSelectAll('author');
 }
 
 //Ham lay danh sach don hang
@@ -311,7 +301,5 @@ function getTotalPrices(){
     return dbQuery($sql);
 }
 
-function getAdminInfo(){
-    return dbSelectAll('admin');
-}
+
 ?>

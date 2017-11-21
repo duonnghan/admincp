@@ -102,7 +102,8 @@ function dbSelectAll($table){
 }
 
 function dbCount($table){
-    $sql = "SELECT COUNT(*) FORM".$table;
-    return dbQuery($sql);
+    $sql = "SELECT * FROM ".$table;
+    $result = dbQuery($sql);
+    return dbNumRows($result);
 }
 ?>

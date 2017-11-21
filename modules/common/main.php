@@ -6,7 +6,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -14,32 +14,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../plugins/images/favicon.png">
     <title>Người quản trị</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Menu CSS -->
-    <link href="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-    <!-- toast CSS -->
-    <link href="../../plugins/components/toast-master/css/jquery.toast.css" rel="stylesheet">
-    
-    <!-- morris CSS -->
-    <link href="../../plugins/components/morrisjs/morris.css" rel="stylesheet">
-    <!-- chartist CSS -->
-    <link href="../../plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="../../plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-    <!-- animation CSS -->
-    <link href="../../css/animate.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="../../css/style.css" rel="stylesheet">
-    <!-- color CSS -->
-    <link href="../../css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <?php include_once('../components/style.php') ?>
 </head>
 
 <body class="fix-header">
@@ -74,57 +50,76 @@ session_start();
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+
+
                 <!-- ============================================================== -->
                 <!-- Different data widgets -->
                 <!-- ============================================================== -->
                 <!-- .row -->
+                <?php
+                    $num_order = getNumOrders();
+                    var_dump($num_order);
+                    $num_user = getNumUsers();
+                    $total_prices = getTotalPrices();
+                ?>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Visit</h3>
+                            <h3 class="box-title">Tổng số khách hàng</h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <div id="sparklinedash"></div>
                                 </li>
-                                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">659</span></li>
+                                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success"><?php echo $num_user; ?></span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Page Views</h3>
+                            <h3 class="box-title">Tổng số đơn hàng</h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <div id="sparklinedash2"></div>
                                 </li>
-                                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">869</span></li>
+                                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple"><?php echo $num_order; ?></span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Unique Visitor</h3>
+                            <h3 class="box-title">Tổng số tiền</h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <div id="sparklinedash3"></div>
                                 </li>
-                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info">911</span></li>
+                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info"><?php echo $total_prices; ?></span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!--/.row -->
-                <!--row -->
-                <!-- /.row -->
+
+
                 <!-- ============================================================== -->
-                <!-- table -->
+                <!-- Noi dung trang -->
                 <!-- ============================================================== -->
                 <?php 
                     $main = $_GET['a'] ?? '';
                     
                     switch($main){
-                        case 'displaybook':
-                            include_once('../management/display.php');
+                        case 'books':
+                            include_once('../management/displaybook.php');
+                        case 'admin';
+                            include_once('../user/adminprofile.php');
+                            break;
+                        case 'orders':
+                            include_once('../management/orderlist.php');
+                            break;
+                        case 'customer':
+                            include_once('../user/customerlist.php');
+                            break;
+                        case 'author':
+                            include_once('../management/authorlist.php');
+                            break;
                     }
                 ?>
                 <!-- ============================================================== -->
@@ -141,30 +136,7 @@ session_start();
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-    <!--slimscroll JavaScript -->
-    <script src="../../js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="../../js/waves.js"></script>
-    <!--Counter js -->
-    <script src="../../plugins/components/waypoints/lib/jquery.waypoints.js"></script>
-    <script src="../../plugins/components/counterup/jquery.counterup.min.js"></script>
-    <!-- chartist chart -->
-    <script src="../../plugins/components/chartist-js/dist/chartist.min.js"></script>
-    <script src="../../plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <!-- Sparkline chart JavaScript -->
-    <script src="../../plugins/components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../../js/custom.min.js"></script>
-    <script src="../../js/dashboard1.js"></script>
-    <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>
+    <?php include_once('../components/script.php') ?>
 </body>
 
 </html>
