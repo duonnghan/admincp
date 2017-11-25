@@ -301,5 +301,12 @@ function getTotalPrices(){
     return dbQuery($sql);
 }
 
+//Ham lay thong tin sach
+function getBookInfo(){
+    $sql = "SELECT b.id, b.`bookname`, b.`price`, b.`description`, b.`cover`, b.`updated`, b.`quantity`, c.categoryname, p.publishername, a.authorname
+    FROM `book` AS b, author AS a, publisher AS p, category AS c
+    WHERE b.`publisherid` = p.id AND b.`authorid`= a.id AND b.`quantity`= c.id";
+    return dbQuery($sql);
+}
 
 ?>

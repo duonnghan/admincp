@@ -3,9 +3,9 @@
     <!-- ============================================================== -->
     <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<!--    <script src="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>-->
     <!--slimscroll JavaScript -->
     <script src="../../js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
@@ -21,4 +21,4 @@
     <!-- Custom Theme JavaScript -->
     <script src="../../js/custom.min.js"></script>
     <script src="../../js/dashboard1.js"></script>
-    <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>
+<!--    <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>-->

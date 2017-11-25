@@ -106,8 +106,9 @@ session_start();
                     $main = $_GET['a'] ?? '';
                     
                     switch($main){
-                        case 'books':
-                            include_once('../management/displaybook.php');
+                        case 'products':
+                            include_once('../management/products.php');
+                            break;
                         case 'admin';
                             include_once('../user/adminprofile.php');
                             break;
