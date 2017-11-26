@@ -20,7 +20,13 @@
                 <a href="<?php createPath('customer'); ?>" class="waves-effect"><i class="fa  fa-users fa-fw" aria-hidden="true"></i>Khách hàng</a>
             </li>
             <li>
-                <a href="<?php createPath('customer'); ?>" class="waves-effect"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>Tác giả</a>
+                <a href="<?php createPath('author'); ?>" class="waves-effect"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>Tác giả</a>
+            </li>
+            <li>
+                <a href="<?php createPath('category'); ?>" class="waves-effect"><i class="fa  fa-list fa-fw" aria-hidden="true"></i>Danh mục sách</a>
+            </li>
+            <li>
+                <a href="<?php createPath('publisher'); ?>" class="waves-effect"><i class="fa fa-institution fa-fw" aria-hidden="true"></i>Nhà xuất bản</a>
             </li>
         </ul>
         

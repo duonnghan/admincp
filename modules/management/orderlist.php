@@ -12,6 +12,7 @@
                             <th>Ngày giao hàng</th>
                             <th>Tình trạng thanh toán</th>
                             <th>Tình trạng giao hàng</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,7 @@
                                 <td>
                                     <?php if($order['shipstat']) echo "Đã giao hàng"; else echo "Chưa giao hàng"; ?>
                                 </td>
+                                <td></td>
                             </tr>
                             <?php
                                 }

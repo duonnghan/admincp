@@ -309,4 +309,14 @@ function getBookInfo(){
     return dbQuery($sql);
 }
 
+//Ham lay thong tin cac danh muc sach
+function getCategoryInfo(){
+	return dbSelectAll('category');
+}
+
+//Ham lay thong tin cac nha xuat ban
+function getPublisherInfo(){
+	return dbSelectAll('publisher');
+}
+
 ?>

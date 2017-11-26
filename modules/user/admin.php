@@ -53,37 +53,29 @@
 <!-- Them admin -->
 <!-- ============================================================== -->
 <div class="container">
+    <div class="row white-box collapse" id="collapseExample">
 
-    <form class="form-horizontal">
-        <fieldset>
-            <div class="collapse" id="collapseExample">
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput">Tài khoản</label>
-                    <div class="col-md-4">
-                        <input id="textinput" name="textinput" type="text" placeholder="username" class="form-control input-md">
+        <div class="col-md-4 col-md-offset-4 col-xs-12">
+            <div>
+                <form class="form-horizontal form-material">
+                    <div class="form-group">
+                        <label class="col-md-12">Tài khoản</label>
+                        <div class="col-md-12">
+                            <input type="text" name="name" class="form-control form-control-line"> </div>
                     </div>
-                </div>
-
-                <!-- Password input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="passwordinput">Mật khẩu</label>
-                    <div class="col-md-4">
-                        <input id="passwordinput" name="passwordinput" type="password" placeholder="password" class="form-control input-md">
+                    <div class="form-group">
+                        <label class="col-md-12">Mật khẩu</label>
+                        <div class="col-md-12">
+                            <input type="text" name="name" class="form-control form-control-line"> </div>
                     </div>
 
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-                    <lable class="col-md-4"></lable>
-                    <div class="col-md-4">
-                        <button id="singlebutton" type="submit" name="createAdmin" class="btn btn-primary" value="create">Tạo</button>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button name="add-product" type="Submit" value="submit" class="btn btn-success">Thêm</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-        </fieldset>
-    </form>
-
+        </div>
+    </div>
 </div>
-

@@ -15,6 +15,7 @@
                             <th>Tựa đề</th>
                             <th>Giá</th>
                             <th>Tác giả</th>
+                            <th>Thể loại</th>
                             <th>Nhà xuất bản</th>
                             <th>Số lượng</th>
                             <th>Mô tả</th>
@@ -41,6 +42,9 @@
                                 </td>
                                 <td>
                                     <?php echo $admin['authorname']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $admin['categoryname']; ?>
                                 </td>
                                 <td>
                                     <?php echo $admin['publishername']; ?>
@@ -70,39 +74,88 @@
 
 
 <!-- ============================================================== -->
-<!-- Them admin -->
+<!-- Them sach -->
 <!-- ============================================================== -->
 <div class="container">
+    <div class="row" id="collapseExample">
 
-    <form class="form-horizontal">
-        <fieldset>
-            <div class="collapse" id="collapseExample">
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput">Tài khoản</label>
-                    <div class="col-md-4">
-                        <input id="textinput" name="textinput" type="text" placeholder="username" class="form-control input-md">
+        <div class="col-md-4 col-xs-12">
+            <div class="white-box">
+
+                <!-- Load Image -->
+                <div class="user-bg"> <img width="100%" alt="user" src="../plugins/images/large/img1.jpg">
+                    <div class="overlay-box">
+                        <div class="user-content">
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
+                            <h4 class="text-white">Image here</h4>
+                            <h5 class="text-white">info@myadmin.com</h5>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Password input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="passwordinput">Mật khẩu</label>
-                    <div class="col-md-4">
-                        <input id="passwordinput" name="passwordinput" type="password" placeholder="password" class="form-control input-md">
-                    </div>
-
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-                    <lable class="col-md-4"></lable>
-                    <div class="col-md-4">
-                        <button id="singlebutton" type="submit" name="createAdmin" class="btn btn-primary" value="create">Tạo</button>
-                    </div>
-                </div>
             </div>
-        </fieldset>
-    </form>
+        </div>
+
+        <div class="col-md-8 col-xs-12">
+            <div class="white-box">
+                <form class="form-horizontal form-material">
+                    <div class="form-group">
+                        <label class="col-md-12">Tựa sách</label>
+                        <div class="col-md-12">
+                            <input type="text" name="name" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-email" class="col-md-12">Giá bán</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control form-control-line" name="price" id="example-email"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Tác giả</label>
+                        <div class="col-md-12">
+                            <input type="text" name="author" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12">Thể loại</label>
+                        <div class="col-sm-12">
+                            <select class="form-control form-control-line">
+                                <option>Văn học</option>
+                                <option>Truyện tranh</option>
+                                <option>Chính trị</option>
+                                <option>Văn hóa</option>
+                                <option>Xã hội</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Nhà xuất bản</label>
+                        <div class="col-md-12">
+                            <input type="text" name="publisher" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Số lượng</label>
+                        <div class="col-md-12">
+                            <input type="text" name="publisher" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Mô tả</label>
+                        <div class="col-md-12">
+                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Ảnh bìa</label>
+                        <div class="col-md-12">
+                            <input class="form-control" type="file" name="upload">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button name="add-product" type="Submit" value="submit" class="btn btn-success">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>

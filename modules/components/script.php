@@ -21,4 +21,4 @@
     <!-- Custom Theme JavaScript -->
     <script src="../../js/custom.min.js"></script>
     <script src="../../js/dashboard1.js"></script>
-<!--    <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>-->
+   <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>
