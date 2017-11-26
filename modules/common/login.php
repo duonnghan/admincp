@@ -11,7 +11,6 @@ include_once("../../libs/functions.php");
 <head>
     <meta charset="UTF-8">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="../../css/stylelogin.css">
 
 </head>
@@ -25,18 +24,16 @@ include_once("../../libs/functions.php");
         <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large" value="login">Đăng nhập</button>
     </form>
     </div>
+</body>
 
+</html>
 
-    <?php
+<?php
 
     if(isset($_POST["btnLogin"]) && $_POST["btnLogin"]=="login")
     {	
         doLogin();
     }
 ?>
-
-</body>
-
-</html>
 
 <?php ob_flush(); ?>

@@ -37,9 +37,8 @@ function doLogin()
 {
 	// nếu tìm thấy lỗi, lưu lỗi vào biến sau
 	$errorMessage = '';
-
 	$userName = $_POST['txtUserName'];
-	$password = $_POST['txtPassword'];
+	$password = md5($_POST['txtPassword']);
 
 	// trước tiên, chắc chắn là username & password có giá trị
 	if ($userName == '') {
@@ -134,8 +133,6 @@ function buildCategoryOptions($catId = 0)
 
 	return $list;
 }
-
-
 
 /*************************************************
 	Tạo thumbnail của $srcFile và lưu vào $destFile.
