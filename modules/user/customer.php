@@ -44,6 +44,10 @@
                                 <td>
                                     <?php echo $user['phone']; ?>
                                 </td>
+                                <td>
+                                    <a href="#demo" class="btn btn-warning" data-toggle="collapse"><i class="fa fa-sliders"></i></a>
+                                    <a href="#demo" class="btn btn-danger" data-toggle="collapse"><i class="fa fa-trash-o"></i></a>
+                                </td>
                             </tr>
                             <?php
                             }

@@ -40,7 +40,10 @@
                                 <td>
                                     <?php if($order['shipstat']) echo "Đã giao hàng"; else echo "Chưa giao hàng"; ?>
                                 </td>
-                                <td></td>
+                                <td>
+                                    <a href="#demo" class="btn btn-warning" data-toggle="collapse"><i class="fa fa-sliders"></i></a>
+                                    <a href="#demo" class="btn btn-danger" data-toggle="collapse"><i class="fa fa-trash-o"></i></a>
+                                </td>
                             </tr>
                             <?php
                                 }

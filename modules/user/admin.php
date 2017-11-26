@@ -15,6 +15,7 @@
                             <th>Tài khoản</th>
                             <th>Mật khẩu</th>
                             <th>Lân cuối đăng nhập</th>
+                            <th>Hành động</th>
                             <th><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class=" fa fa-plus-square"></i>  Thêm</button></th>
                         </tr>
                     </thead>
@@ -36,6 +37,10 @@
                                 </td>
                                 <td>
                                     <?php echo $admin['lastlogin']; ?>
+                                </td>
+                                <td>
+                                    <a href="#demo" class="btn btn-warning" data-toggle="collapse"><i class="fa fa-sliders"></i></a>
+                                    <a href="#demo" class="btn btn-danger" data-toggle="collapse"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                             <?php
