@@ -5,7 +5,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../../js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-<!--    <script src="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>-->
+    <script src="../../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
     <script src="../../js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->

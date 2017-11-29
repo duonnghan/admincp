@@ -256,12 +256,6 @@ function getPagingNav($sql, $pageNum, $rowsPerPage, $queryString = '')
 	return $first . $prev . " Showing page <strong>$pageNum</strong> of <strong>$maxPage</strong> pages " . $next . $last;
 }
 
-//Tao duong dan
-function createPath($action){
-    $path = "Localhost:8080/admincp/modules/common/main.php?a=".$action;
-    return $path;
-}
-
 //Ham lay danh sach khach hang
 function getUserInfo(){
     return dbSelectALl('userinfo');   

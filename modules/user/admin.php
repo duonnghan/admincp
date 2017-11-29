@@ -164,23 +164,3 @@
 ?>
 
 
-
-
-<div class="container">
-    <div class="row white-box collapse" id="collapseDelete">
-        <?php
-            if(isset($_POST['delete']=='delete')){
-                $sql_delete="DELETE FROM admin WHERE username='".$admin['username']."'";
-                $result = dbQuery($sql_delete);
-                var_dump($result);
-                if($result){
-                    header("Refresh:0");
-                    echo "Delete Successfully";
-                }else{
-                    echo "Failed";
-                }
-            }
-
-        ?>
-    </div>
-</div>

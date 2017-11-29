@@ -21,7 +21,8 @@
                             <th>Mô tả</th>
                             <th>Bìa</th>
                             <th>Lần cuối cập nhật</th>
-                            <th><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class=" fa fa-plus-square"></i>  Thêm</button></th>
+                            <th>Hành động</th>
+                            <th><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd"><i class=" fa fa-plus-square"></i>  Thêm</button></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +82,98 @@
 <!-- Them sach -->
 <!-- ============================================================== -->
 <div class="container">
-    <div class="row" id="collapseExample">
+    <div class="row collapse white-box" id="collapseAdd">
+            <div class="col-md-4 col-md-offset-4 col-xs-12">
+
+                <form action="main.php?a=products" method="post" class="form-horizontal form-material">
+                    <div class="form-group">
+                        <label class="col-md-12">Tựa sách</label>
+                        <div class="col-md-12">
+                            <input type="text" name="name" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-email" class="col-md-12">Giá bán</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control form-control-line" name="price" id="example-email"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Tác giả</label>
+                        <div class="col-md-12">
+                            <input type="text" name="author" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12">Thể loại</label>
+                        <div class="col-sm-12">
+                            <select name="category" class="form-control form-control-line">
+                               <?php
+                                    $i=1;
+                                    $category_list = getCategoryInfo();
+                                    foreach($category_list as $category){
+                                ?>
+                                <option value="<?php echo $category['categoryname']; ?>"><?php echo $category['categoryname']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Nhà xuất bản</label>
+                        <div class="col-md-12">
+                            <input type="text" name="publisher" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Số lượng</label>
+                        <div class="col-md-12">
+                            <input type="text" name="quantity" class="form-control form-control-line"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Mô tả</label>
+                        <div class="col-md-12">
+                            <textarea rows="5" name="description" class="form-control form-control-line"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Ảnh bìa</label>
+                        <div class="col-md-12">
+                            <input class="form-control" type="file" name="cover">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button name="addproduct" type="Submit" value="add" class="btn btn-success">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+<?php
+    if(isset($_POST['addproduct']) && $_POST['addproduct'] == "add"){
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $author = $_POST['author'];
+        $category = $_POST['category'];
+        $publisher = $_POST['publisher'];
+        $quantity = $_POST['quantity'];
+        $description = $_POST['description'];
+        
+        $sql_add="INSERT INTO book ";
+        $result = dbQuery($sql_add);
+        if($result){
+            
+        }else{
+            
+        }
+    }
+
+?>
+
+
+<!-- ============================================================== -->
+<!-- Cap nhat sach -->
+<!-- ============================================================== -->
+<div class="container">
+    <div class="row collapse" id="collapseUpdate">
 
         <div class="col-md-4 col-xs-12">
             <div class="white-box">
@@ -122,11 +214,13 @@
                         <label class="col-sm-12">Thể loại</label>
                         <div class="col-sm-12">
                             <select class="form-control form-control-line">
-                                <option>Văn học</option>
-                                <option>Truyện tranh</option>
-                                <option>Chính trị</option>
-                                <option>Văn hóa</option>
-                                <option>Xã hội</option>
+                               <?php
+                                    $i=1;
+                                    $category_list = getCategoryInfo();
+                                    foreach($category_list as $category){
+                                ?>
+                                <option><?php echo $category['categoryname']; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -149,12 +243,12 @@
                     <div class="form-group">
                         <label class="col-md-12">Ảnh bìa</label>
                         <div class="col-md-12">
-                            <input class="form-control" type="file" name="upload">
+                            <input class="form-control" type="file" name="cover">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button name="add-product" type="Submit" value="submit" class="btn btn-success">Thêm</button>
+                            <button name="add-product" type="Submit" value="add" class="btn btn-success">Thêm</button>
                         </div>
                     </div>
                 </form>

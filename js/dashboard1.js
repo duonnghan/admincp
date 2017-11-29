@@ -2,13 +2,13 @@
      "use strict";
      // toat popup js
      $.toast({
-         heading: 'Welcome to Ample admin',
-         text: 'Use the predefined ones, or specify a custom position object.',
+         heading: 'admin -ibook',
+         text: 'Trang quản trị ',
          position: 'top-right',
-         loaderBg: '#fff',
-         icon: 'warning',
-         hideAfter: 3500,
-         stack: 6
+         icon: 'success',
+         hideAfter: 2000,
+         stack: 6,
+         showHideTransition: 'plain'
      })
 
 
