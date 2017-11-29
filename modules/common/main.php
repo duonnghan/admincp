@@ -109,32 +109,12 @@ session_start();
                         <!-- Noi dung trang -->
                         <!-- ============================================================== -->
                         <?php 
-                    $main = $_GET['a'] ?? '';
+                            $module = $_GET['m'] ?? '';
+                            $action = $_GET['a'] ?? '';
                     
-                    switch($main){
-                        case 'products':
-                            include_once('../management/products.php');
-                            break;
-                        case 'admin';
-                            include_once('../user/admin.php');
-                            break;
-                        case 'orders':
-                            include_once('../management/orderlist.php');
-                            break;
-                        case 'customer':
-                            include_once('../user/customer.php');
-                            break;
-                        case 'author':
-                            include_once('../management/author.php');
-                            break;
-                        case 'category':
-                            include_once('../management/category.php');
-                            break;
-                        case 'publisher':
-                            include_once('../management/publisher.php');
-                            break;
-                    }
-                ?>
+                            $path = "../$module/$action.php";
+                            include_once($path);
+                        ?>
                         <!-- ============================================================== -->
                         <!-- chat-listing & recent comments -->
                         <!-- ============================================================== -->

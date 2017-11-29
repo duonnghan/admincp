@@ -25,7 +25,7 @@
                     <a class="profile-pic" href="#"> <img src="../../plugins/images/avatar/tux.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"><?php echo $_SESSION['admin_id'];?></b></a>
                 </li>
                 <li>
-                    <a href="index.php?m=common&a=logout"><b>Đăng xuất</b></a>
+                    <a href="main.php?m=common&a=logout"><b>Đăng xuất</b></a>
                 </li>
             </ul>
         </div>

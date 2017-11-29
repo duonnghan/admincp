@@ -85,7 +85,7 @@
     <div class="row collapse white-box" id="collapseAdd">
             <div class="col-md-4 col-md-offset-4 col-xs-12">
 
-                <form action="main.php?a=products" method="post" class="form-horizontal form-material">
+                <form action="main.php?m=management&a=products_doinsert" method="post" class="form-horizontal form-material">
                     <div class="form-group">
                         <label class="col-md-12">Tựa sách</label>
                         <div class="col-md-12">
